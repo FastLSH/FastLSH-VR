@@ -10,8 +10,8 @@ public class drawLine : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Debug.Log ("START");
-		CreateCylinderBetweenPoints(Vector3.zero, new Vector3(1000f, 1000f, 1000f), 0.5f);
+//		Debug.Log ("START");
+//		CreateCylinderBetweenPoints(Vector3.zero, new Vector3(1000f, 1000f, 1000f), 0.5f);
 	}
 	
 	// Update is called once per frame

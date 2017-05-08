@@ -13,7 +13,9 @@ public class startAlgorithm : MonoBehaviour {
 	public GameObject dataPointsDup;
 	bool startMove = false;
 	bool finish = false;
-	int finishCount;
+	int finishCount = 0;
+	int lineCount = 0;
+	GameObject cylinder;
 	List<Vector3> targetList;
 
 
@@ -31,12 +33,29 @@ public class startAlgorithm : MonoBehaviour {
 				Transform ob = dataPointsDup.transform.GetChild (i);
 				if (ob.position == targetList [i])
 					continue;
-				ob.position = Vector3.MoveTowards(ob.position,targetList[i],0.01f);
+				ob.position = Vector3.MoveTowards(ob.position,targetList[i],0.1f);
 				if (ob.position == targetList [i])
 					finishCount++;
 			}
 
 		}
+
+		if (finishCount >= dataPoints.transform.childCount) {
+			Destroy (cylinder);
+			Random r = new Random();
+			Vector3 cVector = new Vector3 (r.Next (0, 50) * 1000.0f, r.Next (0, 50) * 1000.0f, r.Next (0, 50) * 1000.0f);
+			cylinder = CreateCylinderBetweenPoints (Vector3.zero, cVector, 0.5f);
+			movePoints (cVector);
+			startMove = true;
+			finishCount = 0;
+			lineCount++;
+		}
+
+		if (lineCount > 10) {
+			startMove = false;
+		
+		}
+
 
 
 		
@@ -45,16 +64,17 @@ public class startAlgorithm : MonoBehaviour {
 
 	public void startDemo(){
 		Random r = new Random();
-		for (int i = 0; i < 100; i++) {
+//		for (int i = 0; i < 100; i++) {
 			Vector3 cVector = new Vector3 (r.Next (0, 50) * 1000.0f, r.Next (0, 50) * 1000.0f, r.Next (0, 50) * 1000.0f);
-			GameObject cylinder = CreateCylinderBetweenPoints (Vector3.zero, cVector, 0.2f);
+			cylinder = CreateCylinderBetweenPoints (Vector3.zero, cVector, 0.5f);
 			movePoints (cVector);
 			startMove = true;
-			finishCount = 0;
-			while (finishCount<dataPoints.transform.childCount) {
-			}
-			Destroy (cylinder);
-		}
+
+//			while (finishCount<dataPoints.transform.childCount) {
+//			}
+//			startMove = false;
+//			Destroy (cylinder);
+
 	}
 
 
@@ -95,8 +115,15 @@ public class startAlgorithm : MonoBehaviour {
 			targetList.Add(target);
 			startMove = true;
 			GameObject obj = Instantiate (ob.gameObject,dataPointsDup.transform) as GameObject;
+
+
+			obj.GetComponent<Renderer> ().material.SetFloat("_Metallic", 1.0f);
+			obj.GetComponent<Renderer> ().material.SetColor("_EmissionColor", new Color(0.5F, 0.5F, 0.5F));
+
+
+
 			Color c = obj.GetComponent<Renderer> ().material.color;
-			c.a = 0.2f;
+
 			obj.GetComponent<Renderer> ().material.color= c;
 
 			//			ob.position = Vector3.MoveTowards(ob.position,target,1f);
