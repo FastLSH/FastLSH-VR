@@ -15,7 +15,7 @@ public class CubeScript : MonoBehaviour {
 	}
 
 	public void MyFirstVRFunction(){
-		Debug.Log ("hello world");
+
 	
 	}
 }

@@ -17,7 +17,8 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(Text))]
 public class GvrFPS : MonoBehaviour {
-	private const string DISPLAY_TEXT_FORMAT = "{0} msf\n({1} FPS\n x:{2} y:{3} z:{4})";
+	//private const string DISPLAY_TEXT_FORMAT = "{0} msf\n({1} FPS\n x:{2} y:{3} z:{4})";
+	private const string DISPLAY_TEXT_FORMAT = "x:{0} \ny:{1} \nz:{2}";
   private const string MSF_FORMAT = "#.#";
   private const float MS_PER_SEC = 1000f;
 
@@ -56,7 +57,7 @@ public class GvrFPS : MonoBehaviour {
  //   textField.text = string.Format(DISPLAY_TEXT_FORMAT,
  //       msf.ToString(MSF_FORMAT), Mathf.RoundToInt(fps));
 		textField.text = string.Format(DISPLAY_TEXT_FORMAT,
-			msf.ToString(MSF_FORMAT), Mathf.RoundToInt(fps),x,y,z);
+			x.ToString("0.00"),y.ToString("0.00"),z.ToString("0.00"));
 
 
   }

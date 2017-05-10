@@ -17,7 +17,6 @@ public class manControlor : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-	//	Vector3 v = GvrController.Orientation * Vector3.forward;
 		float y = vrCamera.eulerAngles.y;
 //		GV
 
@@ -30,11 +29,7 @@ public class manControlor : MonoBehaviour {
 		pos [1] = pos [1] - 1;
 
 		transform.position = pos;
-		//transform.Rotate (new Vector3 (oriX, y, oriY));
-			
-	//	myObject.transform.localRotation[2] = GvrController.Orientation[2];
 
-	//	GvrController.
 
 		
 	}
