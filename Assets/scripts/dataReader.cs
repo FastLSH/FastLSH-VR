@@ -34,8 +34,8 @@ public class dataReader : MonoBehaviour {
 
 		Debug.Log ("It is working");
 
-		var data = System.IO.File.ReadAllLines("./Assets/vis_data/Iris.csv").Select(x => x.Split(',')).ToArray();
-
+		var data = System.IO.File.ReadAllLines(Application.dataPath + "/Resources/vis_data/Iris_normalized.csv").Select(x => x.Split(',')).ToArray();
+		//var data = System.IO.File.ReadAllLines("./Assets/vis_data/Iris.csv").Select(x => x.Split(',')).ToArray();
 
 
 		for (int i = 1; i < data.GetLength(0); i++) {

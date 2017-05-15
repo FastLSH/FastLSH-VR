@@ -88,18 +88,18 @@ public class MenuClick : MonoBehaviour {
 		}
 			
 
-		var data = System.IO.File.ReadAllLines("./Assets/vis_data/Iris_normalized.csv").Select(x => x.Split(',')).ToArray();
+		var data = System.IO.File.ReadAllLines(Application.dataPath + "/Resources/vis_data/Iris_normalized.csv").Select(x => x.Split(',')).ToArray();
 
 		if (dataType == 1) {
-			data = System.IO.File.ReadAllLines ("./Assets/vis_data/Iris_normalized.csv").Select (x => x.Split (',')).ToArray ();
-			if (dimType != 3)
+			data = System.IO.File.ReadAllLines (Application.dataPath + "/Resources/vis_data/Iris_normalized.csv").Select (x => x.Split (',')).ToArray ();
+			if (dimType != 3)	
 				dimList = irisDim [dimType - 1];
 		} else if (dataType == 2) {
-			data = System.IO.File.ReadAllLines ("./Assets/vis_data/glass_normalized.csv").Select (x => x.Split (',')).ToArray ();
+			data = System.IO.File.ReadAllLines (Application.dataPath + "/Resources/vis_data/glass_normalized.csv").Select (x => x.Split (',')).ToArray ();
 			if (dimType != 3)
 				dimList = glassDim [dimType - 1];
 		} else if (dataType == 3) {
-			data = System.IO.File.ReadAllLines ("./Assets/vis_data/author_normalized.csv").Select (x => x.Split (',')).ToArray ();
+			data = System.IO.File.ReadAllLines (Application.dataPath + "/Resources/vis_data/author_normalized.csv").Select (x => x.Split (',')).ToArray ();
 			if (dimType != 3)
 				dimList = authorDim [dimType - 1];
 		}
