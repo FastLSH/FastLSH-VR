@@ -1,5 +1,5 @@
 # FastLSH-VR
-Virtual Reality Demo version of FastLSH VR
+Virtual Reality Demo version of FastLSH VR， Unity Engine is used for development, Google Cardboard is used for realizing Virtual Reality.
 
 
 ## To Build
